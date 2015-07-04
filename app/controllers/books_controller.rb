@@ -4,7 +4,7 @@ class BooksController < ApplicationController
 
 
   # GET /books
-  # GET /books.json
+
   def index
     @books = Book.where(availability: true)
   end
@@ -55,8 +55,8 @@ class BooksController < ApplicationController
     end
   end
 
-  # DELETE /books/1
-  # DELETE /books/1.json
+
+
   def destroy
     authorize! :manage, @book
     @book.destroy
