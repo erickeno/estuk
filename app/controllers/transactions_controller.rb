@@ -4,7 +4,8 @@ class TransactionsController < ApplicationController
     token = params[:stripeToken]
     sale = book.sales.create(
       amount: book.price,
-      buyer_email: book.user.email,
+      buyer_email: current_user.email,
+      seller_email: book.user.email,
       stripe_token: params[:stripeToken]
     )
     sale.process!
